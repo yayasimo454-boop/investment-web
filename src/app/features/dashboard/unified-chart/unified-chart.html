@@ -1,0 +1,82 @@
+<div class="unified-chart-card">
+  <div class="main-chart-panel">
+    <div class="chart-top">
+      <div>
+        <span class="asset-symbol">{{ selectedSymbol() }}</span>
+        <span class="asset-name">{{ selectedName() }}</span>
+      </div>
+
+      @if (selectedRow(); as row) {
+        <div>
+          <span class="price-tag">{{ row.price | number: '1.2-4' }}</span>
+          <span class="change-tag" [class.up]="row.changePercent >= 0" [class.down]="row.changePercent < 0">
+            {{ row.changePercent >= 0 ? '+' : '' }}{{ row.changePercent | number: '1.2-2' }}%
+          </span>
+        </div>
+      }
+    </div>
+
+    <div class="chart-wrapper">
+      <canvas #canvas></canvas>
+    </div>
+
+    <div class="trade-controls">
+      <div class="trade-field">
+        <label>{{ 'CHART.AMOUNT' | translate }}</label>
+        <div class="field-box">
+          <input type="number" min="1" [value]="amount()" (input)="onAmountChange($event)" />
+          <span>$</span>
+        </div>
+      </div>
+
+      <div class="payout-inline">
+        <span class="payout-percent">+{{ payoutPercent }}%</span>
+        <span class="payout-amount">{{ 'CHART.ESTIMATED_GAIN' | translate }} : +${{ estimatedGain() }}</span>
+      </div>
+    </div>
+
+    <div class="trade-actions">
+      <button class="trade-btn buy" (click)="buyAsset()">↑ {{ 'CHART.BUY' | translate }}</button>
+      <button class="trade-btn sell" (click)="sellAsset()">↓ {{ 'CHART.SELL' | translate }}</button>
+    </div>
+
+    @if (tradeFeedback()) {
+      <div class="trade-feedback">{{ tradeFeedback() }}</div>
+    }
+  </div>
+
+  <div class="asset-list">
+    <div class="market-header">
+      <span class="market-title">{{ 'CHART.MARKET_TITLE' | translate }}</span>
+    </div>
+
+    <div class="market-search">
+      <input
+        type="text"
+        [placeholder]="'CHART.SEARCH_PLACEHOLDER' | translate"
+        [value]="searchTerm()"
+        (input)="onSearch($event)"
+      />
+    </div>
+
+    <div class="asset-items">
+      @for (row of filteredRows(); track row.symbol) {
+        <button
+          class="asset-item"
+          [class.selected]="row.symbol === selectedSymbol()"
+          [class.up]="row.changePercent >= 0"
+          [class.down]="row.changePercent < 0"
+          (click)="selectAsset(row)"
+        >
+          <span class="item-symbol">{{ row.symbol }}</span>
+          <span class="item-price">{{ row.price | number: '1.2-4' }}</span>
+          <span class="item-change">
+            {{ row.changePercent >= 0 ? '+' : '' }}{{ row.changePercent | number: '1.2-2' }}%
+          </span>
+        </button>
+      } @empty {
+        <p class="no-results">{{ 'CHART.NO_RESULTS' | translate }}</p>
+      }
+    </div>
+  </div>
+</div>

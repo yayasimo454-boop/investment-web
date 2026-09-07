@@ -1,0 +1,170 @@
+{
+  "APP_NAME": "Investment Platform",
+  "AUTH": {
+    "LOGIN": "Login",
+    "REGISTER": "Register",
+    "EMAIL": "Email",
+    "PHONE": "Phone number",
+    "EMAIL_OPTIONAL": "Email (optional)",
+    "PASSWORD": "Password",
+    "CONFIRM_PASSWORD": "Confirmation",
+    "NAME": "Name",
+    "SUBMIT": "Submit",
+    "SUBTITLE_LOGIN": "Access your portfolio",
+    "SUBTITLE_REGISTER": "Create your investor account",
+    "SWITCH_TO_REGISTER": "Create an account",
+    "SWITCH_TO_LOGIN": "Already have an account? Log in"
+  },
+  "NAV": {
+    "DASHBOARD": "Dashboard",
+    "PORTFOLIO": "Portfolio",
+    "MARKETS": "Markets",
+    "LOGOUT": "Logout",
+    "TRADING": "Trading",
+    "FINANCE": "Finance",
+    "PROFILE": "Profile",
+    "MARKET": "Market",
+    "ACHIEVEMENTS": "Achievements",
+    "TOURNAMENTS": "Tournaments",
+    "CHAT": "Chat",
+    "SUPPORT": "Support",
+    "ADMIN": "Admin",
+    "SOON": "Soon"
+  },
+  "MENU": {
+    "KYC": "KYC",
+    "VERIFIED": "Verified",
+    "PENDING": "Pending",
+    "REJECTED": "Rejected",
+    "NOT_VERIFIED": "Not verified",
+    "ADMINISTRATOR": "Administrator",
+    "BEGINNER": "Beginner",
+    "NO_BALANCE": "No balance available",
+    "DEPOSIT": "Deposit",
+    "WITHDRAW": "Withdraw"
+  },
+  "DASHBOARD": {
+    "GREETING": "Hello",
+    "SUBTITLE": "Here's how the markets are moving in real time"
+  },
+  "CHART": {
+    "SEARCH_PLACEHOLDER": "Search an asset...",
+    "NO_RESULTS": "No asset found",
+    "MARKET_TITLE": "Market",
+    "BUY": "Buy",
+    "SELL": "Sell",
+    "AMOUNT": "Amount",
+    "ESTIMATED_GAIN": "Estimated gain"
+  },
+ "FEED": {
+  "TITLE": "Live activity",
+  "WAITING": "Waiting for activity...",
+  "BOUGHT": "bought",
+  "SOLD": "sold",
+  "VIP": "VIP",
+  "CERTIFIED": "Certified"
+},
+  "MODAL": {
+    "DEPOSIT_TITLE": "Make a deposit",
+    "WITHDRAW_TITLE": "Request a withdrawal",
+    "CURRENCY": "Currency",
+    "BALANCE": "balance",
+    "AMOUNT": "Amount",
+    "CONFIRM": "Confirm",
+    "SENDING": "Sending...",
+    "DEPOSIT_SUCCESS": "Deposit request sent, pending approval.",
+    "WITHDRAW_SUCCESS": "Withdrawal request sent, pending approval.",
+    "ERROR": "An error occurred.",
+    "INVALID": "Invalid amount or currency."
+  },
+  "PROFILE": {
+    "TITLE": "My profile",
+    "SAVE": "Save",
+    "SAVING": "Saving...",
+    "UPDATED": "Profile updated.",
+    "ERROR": "Error updating profile."
+  },
+  "FINANCE": {
+    "TITLE": "Financial history",
+    "DEPOSITS": "Deposits",
+    "WITHDRAWALS": "Withdrawals",
+    "NO_DEPOSITS": "No deposits.",
+    "NO_WITHDRAWALS": "No withdrawals."
+  },
+  "STATUS": {
+    "PENDING": "pending",
+    "APPROVED": "approved",
+    "REJECTED": "rejected"
+  },
+  "TRADING": {
+    "TITLE": "Trading"
+  },
+  "ACHIEVEMENTS": {
+    "TITLE": "Achievements",
+    "TOTAL_BALANCE": "Total balance",
+    "TOTAL_DEPOSITED": "Total deposited",
+    "TOTAL_WITHDRAWN": "Total withdrawn",
+    "APPROVED_DEPOSITS": "Approved deposits",
+    "APPROVED_WITHDRAWALS": "Approved withdrawals"
+  },
+  "TOURNAMENTS": {
+    "TITLE": "Tournaments",
+    "NO_ACTIVE": "No active tournament right now.",
+    "COME_BACK": "Come back soon to discover upcoming tournaments."
+  },
+  "CHAT": {
+    "TITLE": "Support",
+    "PLACEHOLDER": "Write your message...",
+    "SEND": "Send",
+    "NO_MESSAGES": "No messages yet. Write to us below."
+  },
+  "ASSISTANCE": {
+    "TITLE": "Support",
+    "Q1": "How do I make a deposit?",
+    "A1": "Open the side menu and click \"Deposit\", enter the amount and desired currency.",
+    "Q2": "What is the minimum balance to withdraw funds?",
+    "A2": "A global balance of $5000 is required to make a withdrawal.",
+    "Q3": "How long does request approval take?",
+    "A3": "Deposit and withdrawal requests are manually reviewed by an administrator. Withdrawals are processed within 72h.",
+    "Q4": "How do I contact support?",
+    "A4": "Use the \"Chat\" page in the side menu to send a message directly to the team."
+  },
+  "ADMIN": {
+    "TITLE": "Admin dashboard",
+    "USERS": "Users",
+    "PENDING_REQUESTS": "Pending requests",
+    "NAME": "Name",
+    "EMAIL": "Email",
+    "ROLE": "Role",
+    "BADGE": "Badge",
+    "KYC": "KYC",
+    "WALLETS": "Wallets",
+    "STATUS": "Status",
+    "ACTIONS": "Actions",
+    "EDIT": "Edit",
+    "SAVE": "Save",
+    "CANCEL": "Cancel",
+    "BLOCK": "Block",
+    "UNBLOCK": "Unblock",
+    "DELETE": "Delete",
+    "ACTIVE": "Active",
+    "BLOCKED": "Blocked",
+    "NONE": "None",
+    "VIP": "VIP",
+    "CERTIFIED": "Certified",
+    "NO_WALLET": "No wallet",
+    "DEPOSITS_PENDING": "Pending deposits",
+    "WITHDRAWALS_PENDING": "Pending withdrawals",
+    "ORDERS_PENDING": "Pending orders",
+    "APPROVE": "Approve",
+    "REJECT": "Reject",
+    "NO_DEPOSITS": "No pending deposits.",
+    "NO_WITHDRAWALS": "No pending withdrawals.",
+    "NO_ORDERS": "No pending orders.",
+    "SUBMITTED": "Submitted",
+    "VALIDATION": "Validation",
+    "PROCESSED": "Processed",
+    "BUY": "Buy",
+    "SELL": "Sell"
+  }
+}

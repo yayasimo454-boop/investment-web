@@ -1,0 +1,23 @@
+.welcome-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.avatar-trigger {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, #6366f1, #38bdf8);
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: filter 0.15s ease;
+}
+
+.avatar-trigger:hover {
+  filter: brightness(1.1);
+}

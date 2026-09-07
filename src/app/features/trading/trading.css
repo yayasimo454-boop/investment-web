@@ -1,0 +1,9 @@
+.trading-page {
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.trading-page h2 {
+  color: #f8fafc;
+  margin: 0 0 16px;
+}

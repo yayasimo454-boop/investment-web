@@ -1,0 +1,23 @@
+<div class="chat-page">
+  <h2>{{ 'CHAT.TITLE' | translate }}</h2>
+
+  <div class="chat-window">
+    @for (msg of messages(); track msg.id) {
+      <div class="chat-bubble" [class.admin]="msg.sender === 'admin'">
+        <span class="bubble-text">{{ msg.message }}</span>
+      </div>
+    } @empty {
+      <p class="muted">{{ 'CHAT.NO_MESSAGES' | translate }}</p>
+    }
+  </div>
+
+  <div class="chat-input">
+    <input
+      type="text"
+      [placeholder]="'CHAT.PLACEHOLDER' | translate"
+      [(ngModel)]="newMessage"
+      (keyup.enter)="send()"
+    />
+    <button [disabled]="sending()" (click)="send()">{{ 'CHAT.SEND' | translate }}</button>
+  </div>
+</div>

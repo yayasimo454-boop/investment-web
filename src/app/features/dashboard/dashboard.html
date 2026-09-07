@@ -1,0 +1,32 @@
+<div class="dashboard">
+  <div class="welcome-bar">
+    <button class="avatar-trigger" (click)="isMenuOpen.set(true)" aria-label="Ouvrir le menu">
+      {{ currentUser()?.name?.charAt(0) }}
+    </button>
+    <div>
+      <h2>{{ 'DASHBOARD.GREETING' | translate }}, {{ currentUser()?.name }}</h2>
+      <p>{{ 'DASHBOARD.SUBTITLE' | translate }}</p>
+    </div>
+  </div>
+
+  <div class="dashboard-grid">
+    <div class="charts-column">
+      <app-unified-chart></app-unified-chart>
+    </div>
+
+    <div class="feed-column">
+      <app-activity-feed></app-activity-feed>
+    </div>
+  </div>
+</div>
+
+<app-side-menu
+  [isOpen]="isMenuOpen()"
+  (close)="isMenuOpen.set(false)"
+  (deposit)="onDeposit()"
+  (withdraw)="onWithdraw()"
+></app-side-menu>
+
+@if (activeModal()) {
+  <app-money-request-modal [mode]="activeModal()!" (close)="closeModal()"></app-money-request-modal>
+}

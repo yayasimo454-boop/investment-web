@@ -1,0 +1,30 @@
+<div class="realisations-page">
+  <h2>{{ 'ACHIEVEMENTS.TITLE' | translate }}</h2>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <span class="stat-value">{{ currentBalance() | number: '1.2-2' }}</span>
+      <span class="stat-label">{{ 'ACHIEVEMENTS.TOTAL_BALANCE' | translate }}</span>
+    </div>
+
+    <div class="stat-card">
+      <span class="stat-value">{{ totalDeposited() | number: '1.2-2' }}</span>
+      <span class="stat-label">{{ 'ACHIEVEMENTS.TOTAL_DEPOSITED' | translate }}</span>
+    </div>
+
+    <div class="stat-card">
+      <span class="stat-value">{{ totalWithdrawn() | number: '1.2-2' }}</span>
+      <span class="stat-label">{{ 'ACHIEVEMENTS.TOTAL_WITHDRAWN' | translate }}</span>
+    </div>
+
+    <div class="stat-card">
+      <span class="stat-value">{{ approvedDepositsCount() }}</span>
+      <span class="stat-label">{{ 'ACHIEVEMENTS.APPROVED_DEPOSITS' | translate }}</span>
+    </div>
+
+    <div class="stat-card">
+      <span class="stat-value">{{ approvedWithdrawalsCount() }}</span>
+      <span class="stat-label">{{ 'ACHIEVEMENTS.APPROVED_WITHDRAWALS' | translate }}</span>
+    </div>
+  </div>
+</div>

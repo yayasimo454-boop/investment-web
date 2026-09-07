@@ -1,0 +1,57 @@
+<div class="auth-page">
+  <div class="auth-card">
+    <div class="auth-header">
+      <div class="auth-logo">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3 17L9 11L13 15L21 7" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M15 7H21V13" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</div>
+      <h2>{{ 'AUTH.REGISTER' | translate }}</h2>
+      <p class="auth-subtitle">{{ 'AUTH.SUBTITLE_REGISTER' | translate }}</p>
+    </div>
+
+    <form (ngSubmit)="onSubmit()" class="auth-form">
+      <div class="field">
+        <label for="name">{{ 'AUTH.NAME' | translate }}</label>
+        <input id="name" type="text" name="name" [(ngModel)]="name" required autocomplete="name" />
+      </div>
+
+      <div class="field">
+        <label>{{ 'AUTH.PHONE' | translate }}</label>
+        <app-phone-input [(fullNumber)]="phone"></app-phone-input>
+      </div>
+
+      <div class="field">
+        <label for="email">{{ 'AUTH.EMAIL_OPTIONAL' | translate }}</label>
+        <input id="email" type="email" name="email" [(ngModel)]="email" autocomplete="email" />
+      </div>
+
+      <div class="field">
+        <label for="password">{{ 'AUTH.PASSWORD' | translate }}</label>
+        <input id="password" type="password" name="password" [(ngModel)]="password" required autocomplete="new-password" />
+      </div>
+
+      <div class="field">
+        <label for="passwordConfirmation">{{ 'AUTH.CONFIRM_PASSWORD' | translate }}</label>
+        <input id="passwordConfirmation" type="password" name="passwordConfirmation" [(ngModel)]="passwordConfirmation" required autocomplete="new-password" />
+      </div>
+
+      @if (errorMessage()) {
+        <p class="error">{{ errorMessage() }}</p>
+      }
+
+      <button type="submit" [disabled]="isLoading()" class="submit-btn">
+        @if (isLoading()) {
+          <span class="spinner"></span>
+        } @else {
+          {{ 'AUTH.SUBMIT' | translate }}
+        }
+      </button>
+    </form>
+
+    <p class="switch-link">
+      <a routerLink="/login">{{ 'AUTH.SWITCH_TO_LOGIN' | translate }}</a>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="phone-input-wrapper">
+  <button type="button" class="country-trigger" (click)="toggleDropdown()">
+    <span>{{ selectedCountry().flag }}</span>
+    <span>{{ selectedCountry().dialCode }}</span>
+    <span class="chevron">▾</span>
+  </button>
+
+  <input
+  type="tel"
+  class="phone-number-input"
+  name="phone-number-field"
+  placeholder="6XX XXX XXX"
+  autocomplete="off"
+  [value]="localNumber()"
+  (input)="onNumberInput($event)"
+/>
+
+  @if (isOpen()) {
+    <div class="country-dropdown">
+      <input
+        type="text"
+        class="country-search"
+        placeholder="Rechercher un pays..."
+        [value]="searchTerm()"
+        (input)="onSearchInput($event)"
+        autofocus
+      />
+      <div class="country-list">
+        @for (country of filteredCountries(); track country.iso) {
+          <button type="button" class="country-option" (click)="selectCountry(country)">
+            <span>{{ country.flag }}</span>
+            <span class="country-name">{{ country.name }}</span>
+            <span class="country-dial">{{ country.dialCode }}</span>
+          </button>
+        } @empty {
+          <p class="no-country">Aucun pays trouvé</p>
+        }
+      </div>
+    </div>
+  }
+</div>

@@ -1,0 +1,75 @@
+<div class="menu-backdrop" [class.open]="isOpen()" (click)="close.emit()"></div>
+
+<aside class="side-menu" [class.open]="isOpen()">
+  <button class="menu-close" (click)="close.emit()" aria-label="Fermer le menu">✕</button>
+
+  <div class="profile-block">
+    <div class="avatar-large">{{ userInitial() }}</div>
+    <p class="profile-name">{{ userName() }}</p>
+
+    <div class="profile-detail">
+      <span>ID</span> <strong>{{ userId() }}</strong>
+    </div>
+    <div class="profile-detail">
+      <span>✉</span> <strong>{{ userEmail() }}</strong>
+    </div>
+    <div class="profile-detail">
+      <span>🛡</span> <strong>{{ 'MENU.KYC' | translate }} : {{ kycKey() | translate }}</strong>
+    </div>
+
+    <span class="profile-badge">{{ roleKey() | translate }}</span>
+  </div>
+
+  <div class="wallet-summary">
+    @for (wallet of wallets(); track wallet.id) {
+      <div class="wallet-row">
+        <span class="wallet-code">{{ wallet.currency.code }}</span>
+        <span class="wallet-balance">{{ wallet.balance | number: '1.2-2' }}</span>
+      </div>
+    } @empty {
+      <p class="wallet-empty">{{ 'MENU.NO_BALANCE' | translate }}</p>
+    }
+  </div>
+
+  <div class="money-actions">
+    <button class="deposit-btn" (click)="onDeposit()">{{ 'MENU.DEPOSIT' | translate }}</button>
+    <button class="withdraw-btn" (click)="onWithdraw()">{{ 'MENU.WITHDRAW' | translate }}</button>
+  </div>
+
+  <div class="quick-icons">
+    <button class="quick-icon" aria-label="Notifications">🔔</button>
+    <button class="quick-icon" aria-label="Récompenses">🎁</button>
+    <button class="quick-icon" aria-label="Support">💬</button>
+  </div>
+
+  <div class="menu-divider"></div>
+
+  <nav class="menu-nav">
+    @for (item of navItems(); track item.label) {
+      <button
+        class="menu-nav-item"
+        [class.active]="item.route === activeRoute()"
+        [class.disabled]="!item.enabled"
+        [disabled]="!item.enabled"
+        (click)="onNavigate(item)"
+      >
+        <span class="label">
+          <span>{{ item.icon }}</span>
+          <span>{{ item.label | translate }}</span>
+        </span>
+        @if (item.badge) {
+          <span class="nav-badge">{{ item.badge }}</span>
+        } @else if (!item.enabled) {
+          <span class="soon-badge">{{ 'NAV.SOON' | translate }}</span>
+        }
+      </button>
+    }
+  </nav>
+
+  <div class="menu-footer">
+    <button class="logout-btn" (click)="onLogout()">
+      
+      <span>{{ 'NAV.LOGOUT' | translate }}</span>
+    </button>
+  </div>
+</aside>

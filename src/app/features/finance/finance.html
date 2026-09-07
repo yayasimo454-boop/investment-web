@@ -1,0 +1,27 @@
+<div class="finance-page">
+  <h2>{{ 'FINANCE.TITLE' | translate }}</h2>
+
+  <div class="finance-section">
+    <h3>{{ 'FINANCE.DEPOSITS' | translate }}</h3>
+    @for (req of requests().deposits; track req.id) {
+      <div class="finance-row">
+        <span>{{ req.amount | number: '1.2-2' }} {{ req.currency.code }}</span>
+        <span class="status-tag" [class]="req.status">{{ ('STATUS.' + req.status) | translate }}</span>
+      </div>
+    } @empty {
+      <p class="muted">{{ 'FINANCE.NO_DEPOSITS' | translate }}</p>
+    }
+  </div>
+
+  <div class="finance-section">
+    <h3>{{ 'FINANCE.WITHDRAWALS' | translate }}</h3>
+    @for (req of requests().withdrawals; track req.id) {
+      <div class="finance-row">
+        <span>{{ req.amount | number: '1.2-2' }} {{ req.currency.code }}</span>
+        <span class="status-tag" [class]="req.status">{{ ('STATUS.' + req.status) | translate }}</span>
+      </div>
+    } @empty {
+      <p class="muted">{{ 'FINANCE.NO_WITHDRAWALS' | translate }}</p>
+    }
+  </div>
+</div>

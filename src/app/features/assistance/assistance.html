@@ -1,0 +1,17 @@
+<div class="assistance-page">
+  <h2>{{ 'ASSISTANCE.TITLE' | translate }}</h2>
+
+  <div class="faq-list">
+    @for (faq of faqs(); track faq.questionKey; let i = $index) {
+      <div class="faq-item" [class.open]="faq.open">
+        <button class="faq-question" (click)="toggle(i)">
+          <span>{{ faq.questionKey | translate }}</span>
+          <span class="chevron">{{ faq.open ? '−' : '+' }}</span>
+        </button>
+        @if (faq.open) {
+          <p class="faq-answer">{{ faq.answerKey | translate }}</p>
+        }
+      </div>
+    }
+  </div>
+</div>

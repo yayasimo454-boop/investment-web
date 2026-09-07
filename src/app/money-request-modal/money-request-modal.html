@@ -1,0 +1,33 @@
+<div class="modal-backdrop" (click)="close.emit()"></div>
+
+<div class="modal-box">
+  <button class="modal-close" (click)="close.emit()" aria-label="Fermer">✕</button>
+
+  <h3 class="modal-title">
+    {{ mode() === 'deposit' ? 'Effectuer un dépôt' : 'Demander un retrait' }}
+  </h3>
+
+  <div class="modal-field">
+    <label>Devise</label>
+    <select [(ngModel)]="selectedCurrencyId">
+      @for (wallet of wallets(); track wallet.currency.id) {
+        <option [value]="wallet.currency.id">
+          {{ wallet.currency.code }} (solde : {{ wallet.balance }})
+        </option>
+      }
+    </select>
+  </div>
+
+  <div class="modal-field">
+    <label>Montant</label>
+    <input type="number" min="1" [(ngModel)]="amount" placeholder="0.00" />
+  </div>
+
+  <button class="modal-submit" [disabled]="loading()" (click)="submit()">
+    {{ loading() ? 'Envoi...' : 'Confirmer' }}
+  </button>
+
+  @if (feedback()) {
+    <p class="modal-feedback">{{ feedback() }}</p>
+  }
+</div>

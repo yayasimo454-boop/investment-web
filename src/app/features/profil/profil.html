@@ -1,0 +1,21 @@
+<div class="profil-page">
+  <h2>{{ 'PROFILE.TITLE' | translate }}</h2>
+
+  <div class="profil-field">
+    <label>{{ 'AUTH.NAME' | translate }}</label>
+    <input type="text" [(ngModel)]="name" />
+  </div>
+
+  <div class="profil-field">
+    <label>{{ 'AUTH.EMAIL' | translate }}</label>
+    <input type="email" [(ngModel)]="email" />
+  </div>
+
+  <button [disabled]="loading()" (click)="save()">
+    {{ (loading() ? 'PROFILE.SAVING' : 'PROFILE.SAVE') | translate }}
+  </button>
+
+  @if (feedback()) {
+    <p class="profil-feedback">{{ feedback() }}</p>
+  }
+</div>

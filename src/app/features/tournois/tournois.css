@@ -1,0 +1,24 @@
+.tournois-page {
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.tournois-page h2 {
+  color: #f8fafc;
+  margin: 0 0 20px;
+}
+
+.empty-state {
+  background: rgba(17, 20, 34, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 40px 20px;
+  text-align: center;
+  color: #cbd5e1;
+}
+
+.empty-state .muted {
+  color: #64748b;
+  font-size: 0.85rem;
+  margin-top: 8px;
+}

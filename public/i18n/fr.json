@@ -1,0 +1,170 @@
+{
+  "APP_NAME": "Plateforme d'Investissement",
+  "AUTH": {
+    "LOGIN": "Connexion",
+    "REGISTER": "Inscription",
+    "EMAIL": "Email",
+    "PHONE": "Numéro de téléphone",
+    "EMAIL_OPTIONAL": "Email (facultatif)",
+    "PASSWORD": "Mot de passe",
+    "CONFIRM_PASSWORD": "Confirmation",
+    "NAME": "Nom",
+    "SUBMIT": "Valider",
+    "SUBTITLE_LOGIN": "Accédez à votre portefeuille",
+    "SUBTITLE_REGISTER": "Créez votre compte investisseur",
+    "SWITCH_TO_REGISTER": "Créer un compte",
+    "SWITCH_TO_LOGIN": "Déjà un compte ? Se connecter"
+  },
+  "NAV": {
+    "DASHBOARD": "Tableau de bord",
+    "PORTFOLIO": "Portefeuille",
+    "MARKETS": "Marchés",
+    "LOGOUT": "Déconnexion",
+    "TRADING": "Trading",
+    "FINANCE": "Finance",
+    "PROFILE": "Profil",
+    "MARKET": "Marché",
+    "ACHIEVEMENTS": "Réalisations",
+    "TOURNAMENTS": "Tournois",
+    "CHAT": "Chat",
+    "SUPPORT": "Assistance",
+    "ADMIN": "Administration",
+    "SOON": "Bientôt"
+  },
+  "MENU": {
+    "KYC": "KYC",
+    "VERIFIED": "Vérifié",
+    "PENDING": "En attente",
+    "REJECTED": "Rejeté",
+    "NOT_VERIFIED": "Non vérifié",
+    "ADMINISTRATOR": "Administrateur",
+    "BEGINNER": "Débutant",
+    "NO_BALANCE": "Aucun solde disponible",
+    "DEPOSIT": "Dépôt",
+    "WITHDRAW": "Retrait"
+  },
+  "DASHBOARD": {
+    "GREETING": "Bonjour",
+    "SUBTITLE": "Voici l'évolution des marchés en temps réel"
+  },
+  "CHART": {
+    "SEARCH_PLACEHOLDER": "Rechercher un actif...",
+    "NO_RESULTS": "Aucun actif trouvé",
+    "MARKET_TITLE": "Marché",
+    "BUY": "Achat",
+    "SELL": "Vente",
+    "AMOUNT": "Montant",
+    "ESTIMATED_GAIN": "Gain estimé"
+  },
+  "FEED": {
+  "TITLE": "Activité en direct",
+  "WAITING": "En attente d'activité...",
+  "BOUGHT": "a acheté",
+  "SOLD": "a vendu",
+  "VIP": "VIP",
+  "CERTIFIED": "Certifié"
+},
+  "MODAL": {
+    "DEPOSIT_TITLE": "Effectuer un dépôt",
+    "WITHDRAW_TITLE": "Demander un retrait",
+    "CURRENCY": "Devise",
+    "BALANCE": "solde",
+    "AMOUNT": "Montant",
+    "CONFIRM": "Confirmer",
+    "SENDING": "Envoi...",
+    "DEPOSIT_SUCCESS": "Demande de dépôt envoyée, en attente de validation.",
+    "WITHDRAW_SUCCESS": "Demande de retrait envoyée, en attente de validation.",
+    "ERROR": "Une erreur est survenue.",
+    "INVALID": "Montant ou devise invalide."
+  },
+  "PROFILE": {
+    "TITLE": "Mon profil",
+    "SAVE": "Enregistrer",
+    "SAVING": "Enregistrement...",
+    "UPDATED": "Profil mis à jour.",
+    "ERROR": "Erreur lors de la mise à jour."
+  },
+  "FINANCE": {
+    "TITLE": "Historique financier",
+    "DEPOSITS": "Dépôts",
+    "WITHDRAWALS": "Retraits",
+    "NO_DEPOSITS": "Aucun dépôt.",
+    "NO_WITHDRAWALS": "Aucun retrait."
+  },
+  "STATUS": {
+    "PENDING": "en attente",
+    "APPROVED": "approuvé",
+    "REJECTED": "rejeté"
+  },
+  "TRADING": {
+    "TITLE": "Trading"
+  },
+  "ACHIEVEMENTS": {
+    "TITLE": "Réalisations",
+    "TOTAL_BALANCE": "Solde total",
+    "TOTAL_DEPOSITED": "Total déposé",
+    "TOTAL_WITHDRAWN": "Total retiré",
+    "APPROVED_DEPOSITS": "Dépôts approuvés",
+    "APPROVED_WITHDRAWALS": "Retraits approuvés"
+  },
+  "TOURNAMENTS": {
+    "TITLE": "Tournois",
+    "NO_ACTIVE": "Aucun tournoi actif pour le moment.",
+    "COME_BACK": "Reviens bientôt pour découvrir les prochains tournois."
+  },
+  "CHAT": {
+    "TITLE": "Support",
+    "PLACEHOLDER": "Écris ton message...",
+    "SEND": "Envoyer",
+    "NO_MESSAGES": "Aucun message. Écris-nous ci-dessous."
+  },
+  "ASSISTANCE": {
+    "TITLE": "Assistance",
+    "Q1": "Comment effectuer un dépôt ?",
+    "A1": "Ouvre le menu latéral et clique sur \"Dépôt\", renseigne le montant et la devise souhaitée.",
+    "Q2": "Quel est le solde minimum pour retirer des fonds ?",
+    "A2": "Un solde global de 5000 $ est requis pour effectuer un retrait.",
+    "Q3": "Combien de temps prend l'approbation d'une demande ?",
+    "A3": "Les demandes de dépôt et de retrait sont examinées manuellement par un administrateur. Les retraits sont traités dans un délai de 72h.",
+    "Q4": "Comment contacter le support ?",
+    "A4": "Utilise la page \"Chat\" dans le menu latéral pour envoyer un message directement à l'équipe."
+  },
+  "ADMIN": {
+    "TITLE": "Tableau de bord administrateur",
+    "USERS": "Utilisateurs",
+    "PENDING_REQUESTS": "Demandes en attente",
+    "NAME": "Nom",
+    "EMAIL": "Email",
+    "ROLE": "Rôle",
+    "BADGE": "Badge",
+    "KYC": "KYC",
+    "WALLETS": "Wallets",
+    "STATUS": "Statut",
+    "ACTIONS": "Actions",
+    "EDIT": "Modifier",
+    "SAVE": "Enregistrer",
+    "CANCEL": "Annuler",
+    "BLOCK": "Bloquer",
+    "UNBLOCK": "Débloquer",
+    "DELETE": "Supprimer",
+    "ACTIVE": "Actif",
+    "BLOCKED": "Bloqué",
+    "NONE": "Aucun",
+    "VIP": "VIP",
+    "CERTIFIED": "Certifié",
+    "NO_WALLET": "Aucun wallet",
+    "DEPOSITS_PENDING": "Dépôts en attente",
+    "WITHDRAWALS_PENDING": "Retraits en attente",
+    "ORDERS_PENDING": "Ordres en attente",
+    "APPROVE": "Approuver",
+    "REJECT": "Rejeter",
+    "NO_DEPOSITS": "Aucun dépôt en attente.",
+    "NO_WITHDRAWALS": "Aucun retrait en attente.",
+    "NO_ORDERS": "Aucun ordre en attente.",
+    "SUBMITTED": "Soumise",
+    "VALIDATION": "Validation",
+    "PROCESSED": "Traitée",
+    "BUY": "Achat",
+    "SELL": "Vente"
+  }
+}

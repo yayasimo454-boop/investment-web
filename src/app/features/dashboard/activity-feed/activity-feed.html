@@ -1,0 +1,28 @@
+<div class="activity-feed">
+  <h3 class="feed-title">{{ 'FEED.TITLE' | translate }}</h3>
+
+  <div class="feed-list">
+    @for (item of items(); track item.id) {
+      <div class="feed-item" [class.buy]="item.action === 'buy'" [class.sell]="item.action === 'sell'">
+        <div class="avatar">{{ item.userName.charAt(0) }}</div>
+        <div class="feed-text">
+          <span class="user-name">
+            {{ item.userName }}
+            @if (item.badge === 'vip') {
+  <span class="badge-tag vip">{{ 'ADMIN.VIP' | translate }}</span>
+} @else if (item.badge === 'certified') {
+  <span class="badge-tag certified">✓ {{ 'ADMIN.CERTIFIED' | translate }}</span>
+}
+       </span>
+          <span class="action-text">
+            {{ (item.action === 'buy' ? 'FEED.BOUGHT' : 'FEED.SOLD') | translate }}
+            <strong>{{ item.amount | number: '1.2-3' }} {{ item.symbol }}</strong>
+          </span>
+        </div>
+        <span class="badge">{{ item.action === 'buy' ? '↑' : '↓' }}</span>
+      </div>
+    } @empty {
+      <p class="empty">{{ 'FEED.WAITING' | translate }}</p>
+    }
+  </div>
+</div>

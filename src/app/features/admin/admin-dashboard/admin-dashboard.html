@@ -1,0 +1,242 @@
+<div class="admin-page">
+  <h2 class="page-title">{{ 'ADMIN.TITLE' | translate }}</h2>
+
+  <div class="tabs">
+    <button [class.active]="activeTab() === 'users'" (click)="setTab('users')">
+      {{ 'ADMIN.USERS' | translate }} ({{ users().length }})
+    </button>
+    <button [class.active]="activeTab() === 'requests'" (click)="setTab('requests')">
+      {{ 'ADMIN.PENDING_REQUESTS' | translate }}
+      ({{ requests().deposits.length + requests().withdrawals.length + requests().orders.length }})
+    </button>
+  </div>
+
+  @if (activeTab() === 'users') {
+    <div class="panel">
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>{{ 'ADMIN.NAME' | translate }}</th>
+              <th>{{ 'ADMIN.EMAIL' | translate }}</th>
+              <th>{{ 'ADMIN.ROLE' | translate }}</th>
+              <th>{{ 'ADMIN.BADGE' | translate }}</th>
+              <th>{{ 'ADMIN.KYC' | translate }}</th>
+              <th>{{ 'ADMIN.WALLETS' | translate }}</th>
+              <th>{{ 'ADMIN.STATUS' | translate }}</th>
+              <th>{{ 'ADMIN.ACTIONS' | translate }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (user of users(); track user.id) {
+              <tr>
+                <td>
+                  @if (editingUserFor() === user.id) {
+                    <input type="text" [(ngModel)]="editForm.name" class="edit-input" />
+                  } @else {
+                    {{ user.name }}
+                  }
+                </td>
+                <td>
+                  @if (editingUserFor() === user.id) {
+                    <input type="email" [(ngModel)]="editForm.email" class="edit-input" />
+                  } @else {
+                    {{ user.email }}
+                  }
+                </td>
+                <td>
+                  @if (editingUserFor() === user.id) {
+                    <select [(ngModel)]="editForm.role" class="edit-select">
+                      <option value="user">user</option>
+                      <option value="admin">admin</option>
+                    </select>
+                  } @else {
+                    <span class="tag" [class.admin-tag]="user.role === 'admin'">{{ user.role }}</span>
+                  }
+                </td>
+                <td>
+                  @if (editingUserFor() === user.id) {
+                    <select [(ngModel)]="editForm.badge" class="edit-select">
+                      <option value="none">{{ 'ADMIN.NONE' | translate }}</option>
+                      <option value="vip">{{ 'ADMIN.VIP' | translate }}</option>
+                      <option value="certified">{{ 'ADMIN.CERTIFIED' | translate }}</option>
+                    </select>
+                  } @else {
+                    @if (user.badge === 'vip') {
+                      <span class="badge-tag vip">{{ 'ADMIN.VIP' | translate }}</span>
+                    } @else if (user.badge === 'certified') {
+                      <span class="badge-tag certified">✓ {{ 'ADMIN.CERTIFIED' | translate }}</span>
+                    } @else {
+                      <span class="badge-tag none">—</span>
+                    }
+                  }
+                </td>
+                <td>
+                  @if (editingUserFor() === user.id) {
+                    <select [(ngModel)]="editForm.kyc_status" class="edit-select">
+                      <option value="pending">pending</option>
+                      <option value="verified">verified</option>
+                      <option value="rejected">rejected</option>
+                    </select>
+                  } @else {
+                    {{ user.kyc_status }}
+                  }
+                </td>
+                <td>
+                  @for (wallet of user.wallets; track wallet.id) {
+                    <div class="wallet-line">
+                      @if (editingBalanceFor() === user.id && selectedCurrencyId === wallet.currency.id) {
+                        <input type="number" [(ngModel)]="newBalance" class="balance-input" />
+                        <button class="mini-btn save" (click)="saveBalance(user.id)">✓</button>
+                        <button class="mini-btn cancel" (click)="cancelEditBalance()">✕</button>
+                      } @else {
+                        <span>{{ wallet.balance | number: '1.2-2' }} {{ wallet.currency.code }}</span>
+                        <button class="mini-btn edit" (click)="startEditBalance(user.id, wallet.currency.id, wallet.balance)">✎</button>
+                      }
+                    </div>
+                  } @empty {
+                    <span class="muted">{{ 'ADMIN.NO_WALLET' | translate }}</span>
+                  }
+                </td>
+                <td>
+                  <span class="status-tag" [class.blocked]="user.is_blocked">
+                    {{ (user.is_blocked ? 'ADMIN.BLOCKED' : 'ADMIN.ACTIVE') | translate }}
+                  </span>
+                </td>
+                <td class="actions-cell">
+                  @if (editingUserFor() === user.id) {
+                    <button class="mini-btn save" (click)="saveUser(user.id)">✓ {{ 'ADMIN.SAVE' | translate }}</button>
+                    <button class="mini-btn cancel" (click)="cancelEditUser()">✕ {{ 'ADMIN.CANCEL' | translate }}</button>
+                  } @else {
+                    <button class="edit-btn" (click)="startEditUser(user)">{{ 'ADMIN.EDIT' | translate }}</button>
+                    <button class="warn-btn" (click)="toggleBlock(user)">
+                      {{ (user.is_blocked ? 'ADMIN.UNBLOCK' : 'ADMIN.BLOCK') | translate }}
+                    </button>
+                    @if (user.role !== 'admin') {
+                      <button class="danger-btn" (click)="deleteUser(user)">{{ 'ADMIN.DELETE' | translate }}</button>
+                    }
+                  }
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  }
+
+  @if (activeTab() === 'requests') {
+    <div class="panel requests-panel">
+      <div class="requests-section">
+        <h3>{{ 'ADMIN.DEPOSITS_PENDING' | translate }}</h3>
+        @for (req of requests().deposits; track req.id) {
+          <div class="request-card">
+            <div class="request-info">
+              <div>
+                <strong>{{ req.user.name }}</strong>
+                <span class="muted"> — {{ req.amount | number: '1.2-2' }} {{ req.currency.code }}</span>
+              </div>
+              <div class="request-actions">
+                <button class="approve-btn" (click)="approveDeposit(req.id)">{{ 'ADMIN.APPROVE' | translate }}</button>
+                <button class="reject-btn" (click)="rejectDeposit(req.id)">{{ 'ADMIN.REJECT' | translate }}</button>
+              </div>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-step done">
+                <span class="dot"></span>
+                <span class="step-label">{{ 'ADMIN.SUBMITTED' | translate }}</span>
+              </div>
+              <div class="progress-line done"></div>
+              <div class="progress-step active">
+                <span class="dot"></span>
+                <span class="step-label">{{ 'ADMIN.VALIDATION' | translate }}</span>
+              </div>
+              <div class="progress-line"></div>
+              <div class="progress-step">
+                <span class="dot"></span>
+                <span class="step-label">{{ 'ADMIN.PROCESSED' | translate }}</span>
+              </div>
+            </div>
+          </div>
+        } @empty {
+          <p class="muted">{{ 'ADMIN.NO_DEPOSITS' | translate }}</p>
+        }
+      </div>
+
+      <div class="requests-section">
+        <h3>{{ 'ADMIN.WITHDRAWALS_PENDING' | translate }}</h3>
+        @for (req of requests().withdrawals; track req.id) {
+          <div class="request-card">
+            <div class="request-info">
+              <div>
+                <strong>{{ req.user.name }}</strong>
+                <span class="muted"> — {{ req.amount | number: '1.2-2' }} {{ req.currency.code }}</span>
+              </div>
+              <div class="request-actions">
+                <button class="approve-btn" (click)="approveWithdrawal(req.id)">{{ 'ADMIN.APPROVE' | translate }}</button>
+                <button class="reject-btn" (click)="rejectWithdrawal(req.id)">{{ 'ADMIN.REJECT' | translate }}</button>
+              </div>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-step done">
+                <span class="dot"></span>
+                <span class="step-label">{{ 'ADMIN.SUBMITTED' | translate }}</span>
+              </div>
+              <div class="progress-line done"></div>
+              <div class="progress-step active">
+                <span class="dot"></span>
+                <span class="step-label">{{ 'ADMIN.VALIDATION' | translate }}</span>
+              </div>
+              <div class="progress-line"></div>
+              <div class="progress-step">
+                <span class="dot"></span>
+                <span class="step-label">{{ 'ADMIN.PROCESSED' | translate }}</span>
+              </div>
+            </div>
+          </div>
+        } @empty {
+          <p class="muted">{{ 'ADMIN.NO_WITHDRAWALS' | translate }}</p>
+        }
+      </div>
+
+      <div class="requests-section">
+        <h3>{{ 'ADMIN.ORDERS_PENDING' | translate }}</h3>
+        @for (req of requests().orders; track req.id) {
+          <div class="request-card">
+            <div class="request-info">
+              <div>
+                <strong>{{ req.user.name }}</strong>
+                <span class="muted">
+                  — {{ (req.type === 'buy' ? 'ADMIN.BUY' : 'ADMIN.SELL') | translate }} {{ req.quantity }} {{ req.asset.symbol }}
+                  à {{ req.requested_price | number: '1.2-4' }}
+                </span>
+              </div>
+              <div class="request-actions">
+                <button class="approve-btn" (click)="approveOrder(req.id)">{{ 'ADMIN.APPROVE' | translate }}</button>
+                <button class="reject-btn" (click)="rejectOrder(req.id)">{{ 'ADMIN.REJECT' | translate }}</button>
+              </div>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-step done">
+                <span class="dot"></span>
+                <span class="step-label">{{ 'ADMIN.SUBMITTED' | translate }}</span>
+              </div>
+              <div class="progress-line done"></div>
+              <div class="progress-step active">
+                <span class="dot"></span>
+                <span class="step-label">{{ 'ADMIN.VALIDATION' | translate }}</span>
+              </div>
+              <div class="progress-line"></div>
+              <div class="progress-step">
+                <span class="dot"></span>
+                <span class="step-label">{{ 'ADMIN.PROCESSED' | translate }}</span>
+              </div>
+            </div>
+          </div>
+        } @empty {
+          <p class="muted">{{ 'ADMIN.NO_ORDERS' | translate }}</p>
+        }
+      </div>
+    </div>
+  }
+</div>
