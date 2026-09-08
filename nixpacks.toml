@@ -1,0 +1,5 @@
+[phases.build]
+cmds = ["npm ci", "npm run build -- --configuration production"]
+
+[start]
+cmd = "npx serve -s dist/investment-web/browser -l $PORT"
