@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://TON-BACKEND.up.railway.app/api', // à corriger une fois le backend déployé (étape 5)
+  apiUrl: 'https://investment-api-production-64f7.up.railway.app/api',
 };
