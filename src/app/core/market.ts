@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, interval, switchMap, shareReplay, startWith, catchError, of } from 'rxjs';
-
+import { environment } from '../../environments/environment';
 export interface Asset {
   id: number;
   symbol: string;
@@ -32,7 +32,7 @@ export interface FictionalUser {
 })
 export class Market {
   private http = inject(HttpClient);
-  private readonly apiUrl = 'http://127.0.0.1:8000/api';
+  private readonly apiUrl = environment.apiUrl;
 
   ticks$: Observable<TickResult[]> = interval(2000).pipe(
     startWith(0),
