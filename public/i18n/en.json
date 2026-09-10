@@ -125,7 +125,7 @@
     "Q1": "How do I make a deposit?",
     "A1": "Open the side menu and click \"Deposit\", enter the amount and desired currency.",
     "Q2": "What is the minimum balance to withdraw funds?",
-    "A2": "A global balance of $5000 is required to make a withdrawal.",
+    "A2": "Withdrawal is only allowed once the user has made at least one deposit of $50.",
     "Q3": "How long does request approval take?",
     "A3": "Deposit and withdrawal requests are manually reviewed by an administrator. Withdrawals are processed within 72h.",
     "Q4": "How do I contact support?",

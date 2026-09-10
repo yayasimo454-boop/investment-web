@@ -125,7 +125,7 @@
     "Q1": "Comment effectuer un dépôt ?",
     "A1": "Ouvre le menu latéral et clique sur \"Dépôt\", renseigne le montant et la devise souhaitée.",
     "Q2": "Quel est le solde minimum pour retirer des fonds ?",
-    "A2": "Un solde global de 5000 $ est requis pour effectuer un retrait.",
+    "A2": "Le retrait est autorisé uniquement si l'utilisateur a déjà effectué au moins un dépôt de 50 $.",
     "Q3": "Combien de temps prend l'approbation d'une demande ?",
     "A3": "Les demandes de dépôt et de retrait sont examinées manuellement par un administrateur. Les retraits sont traités dans un délai de 72h.",
     "Q4": "Comment contacter le support ?",
