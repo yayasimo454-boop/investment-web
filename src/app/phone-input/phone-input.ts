@@ -17,7 +17,7 @@ export class PhoneInput {
   localNumber = signal('');
 
   selectedCountry = signal<CountryCode>(
-    COUNTRY_CODES.find((c) => c.iso === 'CM') ?? COUNTRY_CODES[0]
+    COUNTRY_CODES.find((c) => c.iso === 'CD') ?? COUNTRY_CODES[0]
   );
 
   filteredCountries = computed(() => {

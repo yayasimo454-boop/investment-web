@@ -7,9 +7,9 @@
 
 .main-chart-panel {
   background:
-    linear-gradient(180deg, rgba(10, 14, 26, 0.4), rgba(10, 14, 26, 0.85)),
-    radial-gradient(circle at 30% 20%, rgba(56, 100, 189, 0.25), transparent 60%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+    linear-gradient(180deg, var(--panel-grad-1), var(--panel-grad-2)),
+    radial-gradient(circle at 30% 20%, var(--panel-accent-glow), transparent 60%);
+  border: 1px solid var(--card-border);
   border-radius: 16px;
   padding: 20px;
   box-sizing: border-box;
@@ -30,19 +30,19 @@
 .asset-symbol {
   font-size: 1.1rem;
   font-weight: 700;
-  color: #f8fafc;
+  color: var(--text-primary);
 }
 
 .asset-name {
   font-size: 0.8rem;
-  color: #94a3b8;
+  color: var(--text-secondary);
   margin-left: 8px;
 }
 
 .price-tag {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #f1f5f9;
+  color: var(--text-primary);
   font-variant-numeric: tabular-nums;
 }
 
@@ -76,13 +76,13 @@
   gap: 16px;
   margin-top: 18px;
   padding-top: 18px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid var(--card-border);
 }
 
 .trade-field label {
   display: block;
   font-size: 0.72rem;
-  color: #94a3b8;
+  color: var(--text-secondary);
   margin-bottom: 6px;
 }
 
@@ -90,8 +90,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
   border-radius: 10px;
   padding: 9px 12px;
 }
@@ -100,7 +100,7 @@
   background: transparent;
   border: none;
   outline: none;
-  color: #f1f5f9;
+  color: var(--input-text);
   font-size: 0.9rem;
   font-weight: 600;
   width: 100%;
@@ -121,7 +121,7 @@
 
 .payout-amount {
   font-size: 0.78rem;
-  color: #94a3b8;
+  color: var(--text-secondary);
 }
 
 .trade-actions {
@@ -167,14 +167,14 @@
 .trade-feedback {
   margin-top: 10px;
   font-size: 0.78rem;
-  color: #94a3b8;
+  color: var(--text-secondary);
   text-align: center;
   min-height: 16px;
 }
 
 .asset-list {
-  background: rgba(17, 20, 34, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 16px;
   padding: 14px;
   box-sizing: border-box;
@@ -192,7 +192,7 @@
 .market-title {
   font-size: 0.85rem;
   font-weight: 700;
-  color: #f8fafc;
+  color: var(--text-primary);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -204,18 +204,18 @@
 .market-search input {
   width: 100%;
   box-sizing: border-box;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
   border-radius: 8px;
   padding: 8px 10px;
   font-size: 0.78rem;
-  color: #e2e8f0;
+  color: var(--input-text);
   outline: none;
   transition: border-color 0.15s ease;
 }
 
 .market-search input::placeholder {
-  color: #64748b;
+  color: var(--text-muted);
 }
 
 .market-search input:focus {
@@ -257,7 +257,7 @@
 }
 
 .asset-item:hover {
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--input-bg);
 }
 
 .asset-item:focus-visible {
@@ -272,14 +272,14 @@
 
 .item-symbol {
   font-weight: 700;
-  color: #f1f5f9;
+  color: var(--text-primary);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .item-price {
-  color: #cbd5e1;
+  color: var(--label-color);
   text-align: right;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
@@ -302,7 +302,7 @@
 
 .no-results {
   text-align: center;
-  color: #64748b;
+  color: var(--text-muted);
   font-size: 0.78rem;
   padding: 20px 0;
 }

@@ -2,8 +2,9 @@
   display: block;
   min-height: 100vh;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background: #0b0e1a;
-  color: #f1f5f9;
+  background: var(--page-bg);
+  color: var(--text-primary);
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 .app-shell {
@@ -17,7 +18,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 18px 32px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid var(--card-border);
   gap: 12px;
   flex-wrap: wrap;
 }
@@ -29,15 +30,21 @@
   font-size: 1.05rem;
   font-weight: 700;
   letter-spacing: -0.01em;
-  color: #f8fafc;
+  color: var(--text-primary);
 }
 
 .brand-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #6366f1, #38bdf8);
-  box-shadow: 0 0 10px rgba(99, 102, 241, 0.7);
+  background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+  box-shadow: 0 0 10px var(--accent-shadow-hover);
+}
+
+.app-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 main {

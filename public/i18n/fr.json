@@ -13,7 +13,9 @@
     "SUBTITLE_LOGIN": "Accédez à votre portefeuille",
     "SUBTITLE_REGISTER": "Créez votre compte investisseur",
     "SWITCH_TO_REGISTER": "Créer un compte",
-    "SWITCH_TO_LOGIN": "Déjà un compte ? Se connecter"
+    "SWITCH_TO_LOGIN": "Déjà un compte ? Se connecter",
+    "SHOW_PASSWORD": "Afficher le mot de passe",
+    "HIDE_PASSWORD": "Masquer le mot de passe"
   },
   "NAV": {
     "DASHBOARD": "Tableau de bord",

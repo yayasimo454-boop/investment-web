@@ -11,18 +11,19 @@ import { Tournois } from './features/tournois/tournois';
 import { Chat } from './features/chat/chat';
 import { Assistance } from './features/assistance/assistance';
 import { adminGuard } from './core/admin-guard';
+import { authGuard } from './core/auth-guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: Login },
   { path: 'register', component: Register },
-  { path: 'dashboard', component: Dashboard },
-  { path: 'admin', component: AdminDashboard, canActivate: [adminGuard] },
-  { path: 'profil', component: Profil },
-  { path: 'finance', component: Finance },
-  { path: 'trading', component: Trading },
-  { path: 'realisations', component: Realisations },
-  { path: 'tournois', component: Tournois },
-  { path: 'chat', component: Chat },
-  { path: 'assistance', component: Assistance },
+  { path: 'dashboard', component: Dashboard, canActivate: [authGuard] },
+  { path: 'admin', component: AdminDashboard, canActivate: [authGuard, adminGuard] },
+  { path: 'profil', component: Profil, canActivate: [authGuard] },
+  { path: 'finance', component: Finance, canActivate: [authGuard] },
+  { path: 'trading', component: Trading, canActivate: [authGuard] },
+  { path: 'realisations', component: Realisations, canActivate: [authGuard] },
+  { path: 'tournois', component: Tournois, canActivate: [authGuard] },
+  { path: 'chat', component: Chat, canActivate: [authGuard] },
+  { path: 'assistance', component: Assistance, canActivate: [authGuard] },
 ];

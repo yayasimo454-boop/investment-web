@@ -19,6 +19,11 @@ export class Login {
   password = '';
   errorMessage = signal('');
   isLoading = signal(false);
+  showPassword = signal(false);
+
+  togglePasswordVisibility(): void {
+    this.showPassword.update((value) => !value);
+  }
 
   onSubmit(): void {
     this.errorMessage.set('');

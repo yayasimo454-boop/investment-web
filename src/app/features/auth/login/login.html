@@ -19,7 +19,34 @@
 
       <div class="field">
         <label for="password">{{ 'AUTH.PASSWORD' | translate }}</label>
-        <input id="password" type="password" name="password" [(ngModel)]="password" required autocomplete="current-password" />
+        <div class="password-field">
+          <input
+            id="password"
+            [type]="showPassword() ? 'text' : 'password'"
+            name="password"
+            [(ngModel)]="password"
+            required
+            autocomplete="current-password"
+          />
+          <button
+            type="button"
+            class="toggle-password"
+            (click)="togglePasswordVisibility()"
+            [attr.aria-label]="showPassword() ? ('AUTH.HIDE_PASSWORD' | translate) : ('AUTH.SHOW_PASSWORD' | translate)"
+          >
+            @if (showPassword()) {
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 3L21 21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M10.58 10.58A2 2 0 0012 14a2 2 0 001.42-.59M9.88 4.24A9.94 9.94 0 0112 4c5 0 9.27 3.11 11 7-0.55 1.24-1.31 2.37-2.24 3.33M6.61 6.61C4.6 7.94 3.02 9.8 2 11c1.73 3.89 6 7 10 7 1.13 0 2.22-.19 3.24-.54" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            } @else {
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 11C3.73 7.11 8 4 12 4s8.27 3.11 10 7c-1.73 3.89-6 7-10 7s-8.27-3.11-10-7z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="12" cy="11" r="3" stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+            }
+          </button>
+        </div>
       </div>
 
       @if (errorMessage()) {

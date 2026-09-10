@@ -13,7 +13,9 @@
     "SUBTITLE_LOGIN": "Access your portfolio",
     "SUBTITLE_REGISTER": "Create your investor account",
     "SWITCH_TO_REGISTER": "Create an account",
-    "SWITCH_TO_LOGIN": "Already have an account? Log in"
+    "SWITCH_TO_LOGIN": "Already have an account? Log in",
+    "SHOW_PASSWORD": "Show password",
+    "HIDE_PASSWORD": "Hide password"
   },
   "NAV": {
     "DASHBOARD": "Dashboard",
